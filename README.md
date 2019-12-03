@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/vinhkhuc/TensorFlow2-Mini-Tutorials.svg?branch=master)](https://travis-ci.org/vinhkhuc/TensorFlow2-Mini-Tutorials)
+
 The code requires TensorFlow 2.x and Python 3.6.
 
 Minimal tutorials for TensorFlow 2.x adapted from Alec Radford's 
