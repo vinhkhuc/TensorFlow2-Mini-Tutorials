@@ -1,0 +1,18 @@
+os:
+  - linux
+language: python
+python:
+  - 3.6
+cache: bundler
+install:
+  - pip install --no-cache-dir -q tensorflow>=2.0
+
+# Execute with timeout
+script:
+  - timeout 2m python 0_multiply.py            || if [ $? -eq 0 ] || [ $? -eq 143 ]; then exit 0; fi
+  - timeout 2m python 1_linear_regression.py   || if [ $? -eq 0 ] || [ $? -eq 143 ]; then exit 0; fi
+  - timeout 5m python 2_logistic_regression.py || if [ $? -eq 0 ] || [ $? -eq 143 ]; then exit 0; fi
+  - timeout 5m python 3_neural_net.py          || if [ $? -eq 0 ] || [ $? -eq 143 ]; then exit 0; fi
+  - timeout 5m python 4_modern_neural_net.py   || if [ $? -eq 0 ] || [ $? -eq 143 ]; then exit 0; fi
+  - timeout 10m python 5_convolutional_net.py  || if [ $? -eq 0 ] || [ $? -eq 143 ]; then exit 0; fi
+  - timeout 10m python 6_lstm.py               || if [ $? -eq 0 ] || [ $? -eq 143 ]; then exit 0; fi
