@@ -17,9 +17,6 @@ def build_model(input_dim: int, output_dim: int) -> Sequential:
     return model
 
 
-# TODO: Support tf.function
-# Current code throws exception with Tensor not having .numpy()
-#@tf.function
 def train(model: Sequential, loss: Loss, optimizer: SGD, x: tf.Tensor, y: tf.Tensor) -> float:
 
     # Forward
