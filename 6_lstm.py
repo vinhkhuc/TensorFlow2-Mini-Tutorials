@@ -68,7 +68,10 @@ def main():
     trY = tf.convert_to_tensor(trY, dtype=tf.float32)
 
     model = LSTMNet(input_dim, hidden_dim, n_classes)
-    # TODO: Support model.summary()
+    # Pass input_shape for building the model so that model.summary() works
+    # The input_shape's 1st component is the batch size. The dummy value 1 is used here.
+    model.build(input_shape=(1, seq_length, input_dim))
+    model.summary()
 
     loss = CategoricalCrossentropy(from_logits=True)
     optimizer = SGD(learning_rate=0.01, momentum=0.9)
